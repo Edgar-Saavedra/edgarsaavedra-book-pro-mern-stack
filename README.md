@@ -22,3 +22,6 @@ see [book repo](https://github.com/vasansr/pro-mern-stack)
   //  The express.static generated middleware function is also smart enough to translate a request to “/” (the root of the website)
   // This is similar to what other static web servers such as Apache would have done
   ```
+* $ npm install --save-dev babel-cli babel-preset-react
+  * To transform the JSX, we need to install some babel tools. In this case, we need a couple of tools: babel-cli (the command line tool that invokes the transformation) and babel-preset-react (the plugin that handles React JSX transformation).
+* $ node_modules/.bin/babel src --presets react --out-dir static
