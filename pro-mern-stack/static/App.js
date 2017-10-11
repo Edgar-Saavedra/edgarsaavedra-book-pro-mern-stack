@@ -31,7 +31,7 @@ var IssueRow = function (_React$Component) {
   _createClass(IssueRow, [{
     key: 'render',
     value: function render() {
-      var borderedStyle = { borderWidth: "1px", borderStyle: "solid", borderColor: "silver", padding: 4 };
+      var issue = this.props.issue;
       return React.createElement(
         'tr',
         null,

@@ -14,7 +14,7 @@ const issues = [
 
 class IssueRow extends React.Component {
   render() {
-    const borderedStyle = { borderWidth:"1px",borderStyle:"solid",borderColor: "silver",padding:4};
+    const issue = this.props.issue;
     return (
       <tr>
         <td>{issue.id}</td>
