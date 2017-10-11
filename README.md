@@ -7,3 +7,4 @@ see [book repo](https://github.com/vasansr/pro-mern-stack)
 
 * React classes let us create real components (as opposed to the templated HTML that we saw in the previous chapter),
   reuse them within other components, handle events, and so much more.
+* Ideally, components should be isolated into their own files so that they can be reused.
