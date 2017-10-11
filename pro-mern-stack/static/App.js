@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -10,6 +10,15 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var contentNode = document.getElementById('contents');
 
+var issues = [{
+  id: 1, status: 'Open', owner: 'Ravan',
+  created: new Date('2016-08-15'), effort: 5, completionDate: undefined,
+  title: 'Error in console when clicking Add'
+}, {
+  id: 2, status: 'Assigned', owner: 'Eddie', created: new Date('2016-08-16'), effort: 14, completionDate: new Date('2016-08-30'),
+  title: 'Missing bottom border on panel'
+}];
+
 var IssueRow = function (_React$Component) {
   _inherits(IssueRow, _React$Component);
 
@@ -20,21 +29,48 @@ var IssueRow = function (_React$Component) {
   }
 
   _createClass(IssueRow, [{
-    key: "render",
+    key: 'render',
     value: function render() {
       var borderedStyle = { borderWidth: "1px", borderStyle: "solid", borderColor: "silver", padding: 4 };
       return React.createElement(
-        "tr",
+        'tr',
         null,
         React.createElement(
-          "td",
-          { style: borderedStyle },
-          this.props.issue_id
+          'td',
+          null,
+          issue.id
         ),
         React.createElement(
-          "td",
-          { style: borderedStyle },
-          this.props.children
+          'td',
+          null,
+          issue.status
+        ),
+        React.createElement(
+          'td',
+          null,
+          issue.owner
+        ),
+        ' ',
+        React.createElement(
+          'td',
+          null,
+          issue.created.toDateString()
+        ),
+        ' ',
+        React.createElement(
+          'td',
+          null,
+          issue.effort
+        ),
+        React.createElement(
+          'td',
+          null,
+          issue.completionDate ? issue.completionDate.toDateString() : ''
+        ),
+        React.createElement(
+          'td',
+          null,
+          issue.title
         )
       );
     }
@@ -53,12 +89,12 @@ var IssueFilter = function (_React$Component2) {
   }
 
   _createClass(IssueFilter, [{
-    key: "render",
+    key: 'render',
     value: function render() {
       return React.createElement(
-        "div",
+        'div',
         null,
-        "This is a placeholder fot he issues filter"
+        'This is a placeholder fot he issues filter'
       );
     }
   }]);
@@ -76,43 +112,37 @@ var IssueTable = function (_React$Component3) {
   }
 
   _createClass(IssueTable, [{
-    key: "render",
+    key: 'render',
     value: function render() {
       var borderedStyle = { borderWidth: "1px", borderStyle: "solid", borderColor: "silver", padding: 6 };
+      var issueRows = this.props.issues.map(function (issue) {
+        return React.createElement(IssueRow, { key: issue.id, issue: issue });
+      });
       return React.createElement(
-        "table",
+        'table',
         { style: { borderCollapse: "collapse" } },
         React.createElement(
-          "thead",
+          'thead',
           null,
           React.createElement(
-            "tr",
+            'tr',
             null,
             React.createElement(
-              "th",
+              'th',
               { style: borderedStyle },
-              "ID"
+              'ID'
             ),
             React.createElement(
-              "th",
+              'th',
               { style: borderedStyle },
-              "Title"
+              'Title'
             )
           )
         ),
         React.createElement(
-          "tbody",
+          'tbody',
           null,
-          React.createElement(
-            IssueRow,
-            { issue_id: 1 },
-            "Error in console when clicking add"
-          ),
-          React.createElement(
-            IssueRow,
-            { issue_id: 2 },
-            "Missing bottom border on panel"
-          )
+          issueRows
         )
       );
     }
@@ -131,12 +161,12 @@ var IssueAdd = function (_React$Component4) {
   }
 
   _createClass(IssueAdd, [{
-    key: "render",
+    key: 'render',
     value: function render() {
       return React.createElement(
-        "div",
+        'div',
         null,
-        "This is a placeholder fot an Issue Add entry form."
+        'This is a placeholder fot an Issue Add entry form.'
       );
     }
   }]);
@@ -154,20 +184,20 @@ var IssueList = function (_React$Component5) {
   }
 
   _createClass(IssueList, [{
-    key: "render",
+    key: 'render',
     value: function render() {
       return React.createElement(
-        "div",
+        'div',
         null,
         React.createElement(
-          "h1",
+          'h1',
           null,
-          "Issue Tracker"
+          'Issue Tracker'
         ),
         React.createElement(IssueFilter, null),
-        React.createElement("hr", null),
-        React.createElement(IssueTable, null),
-        React.createElement("hr", null),
+        React.createElement('hr', null),
+        React.createElement(IssueTable, { issues: issues }),
+        React.createElement('hr', null),
         React.createElement(IssueAdd, null)
       );
     }

@@ -17,3 +17,4 @@ see [book repo](https://github.com/vasansr/pro-mern-stack)
   * Property validation is checked only in development mode, and a warning is shown in the console when any validation fails.
 * There is another way to pass data to other components, using the contents of the HTML- like node of the component
   * this.props called this.props.children
+* React does not call a toString() automatically on objects, because it expects all objects as children of components to be React components if they are not strings.
