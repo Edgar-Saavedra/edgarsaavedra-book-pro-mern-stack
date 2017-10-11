@@ -15,3 +15,5 @@ see [book repo](https://github.com/vasansr/pro-mern-stack)
 * the properties being passed from one component to another can also be validated against a specification
   *  supplied in the form of a static object called propTypes
   * Property validation is checked only in development mode, and a warning is shown in the console when any validation fails.
+* There is another way to pass data to other components, using the contents of the HTML- like node of the component
+  * this.props called this.props.children
