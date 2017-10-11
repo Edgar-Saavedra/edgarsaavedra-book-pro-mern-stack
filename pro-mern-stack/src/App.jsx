@@ -1,5 +1,17 @@
 const contentNode = document.getElementById('contents');
 
+class IssueRow extends React.Component {
+  render() {
+    const borderedStyle = { borderWidth:"1px",borderStyle:"solid",borderColor: "silver",padding:4};
+    return (
+      <tr>
+        <td style={borderedStyle}>{this.props.issue_id}</td>
+        <td style={borderedStyle}>{this.props.issue_title}</td>
+      </tr>
+    );
+  }
+}
+
 class IssueFilter extends React.Component {
   render() {
     return (
@@ -11,8 +23,20 @@ class IssueFilter extends React.Component {
 
 class IssueTable extends React.Component {
   render() {
+    const borderedStyle = {borderWidth:"1px",borderStyle:"solid",borderColor: "silver",padding:6};
     return (
-      <div>This is a placeholder fot a table of issues</div>
+      <table style={{borderCollapse:"collapse"}}>
+        <thead>
+          <tr>
+            <th style={borderedStyle}>ID</th>
+            <th style={borderedStyle}>Title</th>
+          </tr>
+        </thead>
+        <tbody>
+          <IssueRow issue_id={1} issue_title="Error in console when clicking add"></IssueRow>
+          <IssueRow issue_id={2} issue_title="Missing bottom border on panel"></IssueRow>
+        </tbody>
+      </table>
     );
   }
 }
