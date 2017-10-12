@@ -34,7 +34,7 @@ var IssueRow = function (_React$Component) {
       var issue = this.props.issue;
       return React.createElement(
         'tr',
-        null,
+        { key: issue.id },
         React.createElement(
           'td',
           null,
@@ -56,7 +56,6 @@ var IssueRow = function (_React$Component) {
           null,
           issue.created.toDateString()
         ),
-        ' ',
         React.createElement(
           'td',
           null,
@@ -65,7 +64,7 @@ var IssueRow = function (_React$Component) {
         React.createElement(
           'td',
           null,
-          issue.completionDate ? issue.completionDate.toDateString() : ''
+          issue.completionDate ? issue.completionDate.toDateString() : ""
         ),
         React.createElement(
           'td',
